@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/meteo.routes")(app);
-// set port, listen for requests
+// set port, listen for request
 const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || '0.0.0.0'
 app.listen(PORT, HOST,  () => {
