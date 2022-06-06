@@ -4,7 +4,7 @@ module.exports = mongoose => {
       mongoose.Schema(
         {
 
-            //data: { type : Array , "default" : [] },
+            data: { type : Array , "default" : [] },
             city_name: String,
             lon : Number,
             timezone : String,
