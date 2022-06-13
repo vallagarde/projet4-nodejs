@@ -73,3 +73,26 @@ exports.deleteAll = (req, res) => {
 //exports.findAllPublished = (req, res) => {
 //  
 //};
+
+exports.findByDateAndByCity = (req, res) => {
+  const date = req.params.date; // format : YYYY-MM-DD 
+  const city_name = req.params.city_name;
+  Meteo.findOne({ "data.valid_date": date , "city_name": city_name } )
+    //.sort('-record_date')
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found Meteo with city_name " + city_name });
+      else{
+        var index = data.data.findIndex(obj => obj.valid_date==date); // on ne récupère que la date que l'o veut
+        var dataMeteo= data.data[index];
+        
+        res.send(dataMeteo);
+      }
+       
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Meteo with id=" + id });
+    });
+};
