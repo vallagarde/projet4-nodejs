@@ -83,16 +83,17 @@ exports.findByDateAndByCity = (req, res) => {
       if (!data)
         res.status(404).send({ message: "Not found Meteo with city_name " + city_name });
       else{
-        var index = data.data.findIndex(obj => obj.valid_date==date); // on ne récupère que la date que l'o veut
+        var index = data.data.findIndex(obj => obj.valid_date==date); // on ne récupère que la date que l'on veut
         var dataMeteo= data.data[index];
+        dataMeteo.index  = index;
+        dataMeteo.meteoId  = data._id
         
         res.send(dataMeteo);
       }
-       
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving Meteo with id=" + id });
+        .send({ message: "Error retrieving Meteo with city_name " + city_name });
     });
 };
