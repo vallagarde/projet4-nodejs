@@ -9,7 +9,10 @@ module.exports = app => {
     router.get("/:id", meteo.findOne);
 
      // Retrieve a maeteo with a place and a date
-     router.get("/one/:date/:city_name", meteo.findByDateAndByCity)
+    router.get("/one/:date/:city_name", meteo.findByDateAndByCity)
+
+     // Retrieve a maeteo with a place and a date
+    router.get("/one/:date/:lat/:long", meteo.findByDateAndCoords)
     
     // Delete a Tutorial with id
     router.delete("/:id", meteo.delete);

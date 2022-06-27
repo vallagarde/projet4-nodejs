@@ -1,0 +1,132 @@
+
+[
+    {
+
+      "name" : "Saint_Jean_De_Luz",
+      "lat" :43.240,
+      "long" : -1.390 
+  },
+
+ {
+      "name" : "Biaritz",
+      "lat" :43.310,
+      "long" : -1.310
+
+  },
+
+    {
+     "name" : "Arcachon",
+      "lat" : 44.40 ,
+      "long" : -1.10
+
+  },
+  {
+      "name" : "Pointe_de_grave",
+      "lat" : 45.34,
+      "long" : -1.04 
+
+  },
+  {
+      "name" :"La_Rochelle_Pallice",
+      "lat" : 46.10,
+      "long" :-1.13 
+
+  },
+  {
+      "name" : "Sables_d_Olonne",
+      "lat" : 46.30,
+      "long" : -1.48 
+
+  },
+  {
+      "name" : "Saint_Nazaire",
+      "lat" : 47.16,
+      "long" :-2.12 
+
+  },{
+    "name" :"Port_Navalo" ,
+    "lat" : 47.33,
+    "long" : -2.55 
+
+},
+{
+    "name" : "Ile_de_Groix",
+    "lat" : 47.39,
+    "long" : -3.27
+
+},
+{
+    "name" : "Concarneau",
+    "lat" : 47.52,
+    "long" : -3.54
+
+},
+{
+    "name" : "Brest",
+    "lat" : 48.23,
+    "long" : -4.30 
+
+},
+{
+    "name" : "Roscoff",
+    "lat" : 48.43,
+    "long" : -3.58
+
+},
+{
+    "name" : "Paimpol",
+    "lat" :48.48 ,
+    "long" :-2.57 
+
+},
+{
+    "name" : "Saint_Malo",
+    "lat" : 48.38 ,
+    "long" : -2.00 
+
+},
+{
+    "name" : "Cherbourg",
+    "lat" : 49.39 ,
+    "long" : -1.38 
+
+},
+{
+    "name" : "Le_Havre",
+    "lat" : 49.29,
+    "long" : 0.07 
+
+},
+{
+    "name" : "Fecamp",
+    "lat" : 49.46 ,
+    "long" : 0.22 
+
+},
+{
+    "name" : "Dieppe",
+    "lat" : 49.56,
+    "long" : 1.05 
+
+},
+{
+    "name" : "Boulogne_sur_Mer",
+    "lat" : 50.44,
+    "long" : 1.35 
+
+},
+{
+    "name" :"Calais" ,
+    "lat" : 50.58,
+    "long" : 1.52 
+
+},
+{
+    "name" :"Dunkerke" ,
+    "lat" : 51.03,
+    "long" : 2.22 
+
+}
+ 
+  
+]

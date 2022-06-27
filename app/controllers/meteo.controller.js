@@ -1,5 +1,6 @@
 const db = require("../models");
 const Meteo = db.meteo;
+const coordinate = require("../services/coordinate.js")
 
 // Retrieve all Meteos from the database.
 exports.findAll = (req, res) => {
@@ -95,5 +96,32 @@ exports.findByDateAndByCity = (req, res) => {
       res
         .status(500)
         .send({ message: "Error retrieving Meteo with city_name " + city_name });
+    });
+};
+
+
+exports.findByDateAndCoords = (req, res) => {
+  const date = req.params.date; // format : YYYY-MM-DD 
+  const lat = req.params.lat;
+  const long = req.params.long;
+  const coords = coordinate(lat,long);
+  Meteo.findOne({ "data.valid_date": date , "lat": coords[0]} )
+    //.sort('-record_date')
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found Meteo with city_name " + coords[0]+ coords[1] });
+      else{
+        var index = data.data.findIndex(obj => obj.valid_date==date); // on ne récupère que la date que l'on veut
+        var dataMeteo= data.data[index];
+        dataMeteo.index  = index;
+        dataMeteo.meteoId  = data._id
+        
+        res.send(dataMeteo);
+      }
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Meteo with city_name " +  coords[0] });
     });
 };
