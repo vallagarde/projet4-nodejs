@@ -8,6 +8,10 @@ module.exports = app => {
     // Retrieve a single Tutorial with id
     router.get("/:id", meteo.findOne);
 
+    //Retrieve meteo with index and Id
+
+    router.get("/one/:id/:index", meteo.findMeteoByIdAndIndex)
+
      // Retrieve a maeteo with a place and a date
     router.get("/one/:date/:city_name", meteo.findByDateAndByCity)
 
