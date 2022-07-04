@@ -32,6 +32,29 @@ exports.findOne = (req, res) => {
           .send({ message: "Error retrieving Meteo with id=" + id });
       });
   };
+
+
+  exports.findMeteoByIdAndIndex = (req, res) => {
+    const id = req.params.id;
+    const index = req.params.index;
+    Meteo.findById(id)
+      .then(data => {
+        if (!data)
+          res.status(404).send({ message: "Not found Meteo with id " + id });
+        else {
+          var dataMeteo= data.data[index];
+          dataMeteo.index  = index;
+          dataMeteo.meteoId  = data._id
+          
+          res.send(dataMeteo);
+        }
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .send({ message: "Error retrieving Meteo with id=" + id });
+      });
+  };
 // Update a Meteo by the id in the request
 
 // Delete a Meteo with the specified id in the request

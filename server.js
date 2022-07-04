@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.mongoose
-  .connect(db.url, {
+  .connect(process.env.MONGODB_HOST+"/meteodb", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -27,7 +27,7 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Bienvenue sur l'aplication meteoNode" });
 });
 
 require("./app/routes/meteo.routes")(app);
