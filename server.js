@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
 db.mongoose
-  .connect(process.env.MONGODB_HOST+"/meteodb", {
+  .connect(db.url+"/meteodb", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/meteo.routes")(app);
+
 // set port, listen for reques
 const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || '0.0.0.0'
