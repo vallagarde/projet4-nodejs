@@ -1,5 +1,5 @@
 
 module.exports = {
-    url :process.env.MONGODB_HOST+"/meteodb"
+    url :process.env.MONGODB_HOST
   };
 
