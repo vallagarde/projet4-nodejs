@@ -17,6 +17,9 @@ module.exports = app => {
 
      // Retrieve a maeteo with a place and a date
     router.get("/one/:date/:lat/:long", meteo.findByDateAndCoords)
+
+    //retrive true or false depending on existence of predicted meteo
+    router.get("/one/:date/:lat/:long:/tempMin:/tempMax:/ventMin:/ventMax", meteo.existByDateAndCoordsAndTempAndWind)
     
     // Delete a Tutorial with id
     router.delete("/:id", meteo.delete);
