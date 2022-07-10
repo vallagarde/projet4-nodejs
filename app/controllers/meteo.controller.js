@@ -153,23 +153,29 @@ exports.findByDateAndCoords = (req, res) => {
 exports.existByDateAndCoordsAndTempAndWind = (req, res) => {
 
   const date = req.params.date; // format : YYYY-MM-DD
+  const lat = req.params.lat;
+  const long = req.params.long;
   const tempMin= req.params.tempMin;
   const tempMax= req.params.tempMax;
   const ventMin = req.params.ventMin;
   const ventMax = req.params.ventMax;
-  const lat = req.params.lat;
-  const long = req.params.long;
+
   const coords = coordinate(lat,long);
+  console.log(coords[0]);
   Meteo.findOne({ "data.valid_date": date , "lat": coords[0], "data.wind_spd": { $gt :  ventMin, $lt : ventMax}, "data.temp" : { $gt :  tempMin, $lt : tempMax}} )
     //.sort('-record_date')
     .then(data => {
-      if (!data)
+      if (!data){
         res.send("false");
+        console.log("false");
+      }
       else{
         res.send("true");
+        console.log("true");
       }
     })
     .catch(err => {
+      console.log("error");
       res
         .status(500)
         .send({ message: "Error retrieving Meteo with city_name " +  coords[0] });
